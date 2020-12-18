@@ -1,5 +1,6 @@
 <template lang="pug">
 div.vue-form-generator(v-if='schema != null')
+	slot.top
 	fieldset(v-if="schema.fields", :is='tag')
 		template(v-for='field in fields')
 			form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
@@ -9,6 +10,8 @@ div.vue-form-generator(v-if='schema != null')
 			legend(v-if='group.legend') {{ group.legend }}
 			template(v-for='field in group.fields')
 				form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
+
+	slot.bottom
 </template>
 
 <script>
