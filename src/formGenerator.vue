@@ -1,6 +1,6 @@
 <template lang="pug">
 div.vue-form-generator(v-if='schema != null')
-	slot.top
+	slot(name='form-top')
 	fieldset(v-if="schema.fields", :is='tag')
 		template(v-for='field in fields')
 			form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
@@ -11,7 +11,7 @@ div.vue-form-generator(v-if='schema != null')
 			template(v-for='field in group.fields')
 				form-group(v-if='fieldVisible(field)', :vfg="vfg", :field="field", :errors="errors", :model="model", :options="options", @validated="onFieldValidated", @model-updated="onModelUpdated")
 
-	slot.bottom
+	slot(name='form-bottom')
 </template>
 
 <script>
