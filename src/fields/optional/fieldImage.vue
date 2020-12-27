@@ -57,6 +57,15 @@ export default {
 			let reader = new FileReader();
 			reader.onload = e => {
 				this.value = e.target.result;
+				const event = new Event("imagePreviewed", {
+					bubbles: true
+				});
+				event.originalEvent = e;
+				event.schema = this.schema;
+				event.value = this.value;
+				this.$el.dispatchEvent( event );
+				console.log( "event dispatched");
+				console.log( event );
 			};
 
 			if (event.target.files && event.target.files.length > 0) {
