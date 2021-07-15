@@ -114,6 +114,12 @@ export default {
 			if (this.$refs.child) {
 				return this.$refs.child.clearValidationErrors();
 			}
+		},
+		setValidationErrors( errors )
+		{
+			if (this.$refs.child) {
+				return this.$refs.child.setValidationErrors( errors );
+			}
 		}
 	}
 };

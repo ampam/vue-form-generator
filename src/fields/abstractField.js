@@ -175,6 +175,13 @@ export default {
 		clearValidationErrors() {
 			this.errors.splice(0);
 		},
+		setValidationErrors( errors ) {
+			this.errors = errors;
+		},
+
+		setErrors(errors) {
+			this.errors = errors;
+		},
 
 		setModelValueByPath(path, value) {
 			// convert array indexes to properties

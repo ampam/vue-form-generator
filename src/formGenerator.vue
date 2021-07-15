@@ -207,6 +207,18 @@ export default {
 				child.clearValidationErrors();
 			});
 		},
+
+		// Clear validation errors
+		setValidationErrors( model, errors ) {
+			this.errors.splice(0);
+
+			forEach(this.$children, child => {
+				if ( child.$props.field.model === model )
+				{
+					child.setValidationErrors( errors );
+				}
+			});
+		},
 	}
 };
 </script>
